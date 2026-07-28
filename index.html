@@ -1,910 +1,1295 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Happy Birthday Kanchan ❤️</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  /* ============ ROOT VARIABLES ============ */
-  :root{
-    --bg-dark:#12091d;
-    --bg-black:#08040d;
-    --pink:#FF4D88;
-    --rose:#FF7AA2;
-    --gold:#FFD166;
-    --white:#FFFFFF;
-    --grey:#EAEAEA;
-    --font-head:'Great Vibes', cursive;
-    --font-body:'Poppins', sans-serif;
-    --max-width:420px;
-  }
-
-  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-
-  html{scroll-behavior:smooth;}
-
-  body{
-    background:linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-black) 100%);
-    color:var(--white);
-    font-family:var(--font-body);
-    overflow-x:hidden;
-    width:100%;
-    min-height:100vh;
-    position:relative;
-  }
-
-  ::selection{background:var(--pink);color:var(--white);}
-
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
-  }
-
-  .wrap{
-    max-width:var(--max-width);
-    margin:0 auto;
-    position:relative;
-    z-index:2;
-    padding:0 20px;
-  }
-
-  /* ============ BACKGROUND LAYERS ============ */
-  #bg-canvas-layer{
-    position:fixed;
-    inset:0;
-    z-index:0;
-    pointer-events:none;
-    overflow:hidden;
-  }
-
-  .glow-blob{
-    position:absolute;
-    border-radius:50%;
-    filter:blur(60px);
-    opacity:0.35;
-  }
-  .glow-blob.g1{width:260px;height:260px;background:var(--pink);top:-60px;left:-60px;}
-  .glow-blob.g2{width:220px;height:220px;background:var(--rose);bottom:10%;right:-70px;}
-  .glow-blob.g3{width:200px;height:200px;background:var(--gold);top:45%;left:-80px;opacity:0.18;}
-
-  .star{
-    position:absolute;
-    background:var(--white);
-    border-radius:50%;
-    animation:twinkle 3s ease-in-out infinite;
-  }
-  @keyframes twinkle{
-    0%,100%{opacity:0.15; transform:scale(0.8);}
-    50%{opacity:1; transform:scale(1.2);}
-  }
-
-  .floating-heart{
-    position:absolute;
-    bottom:-40px;
-    font-size:18px;
-    opacity:0;
-    animation:floatUp linear infinite;
-    filter:drop-shadow(0 0 6px rgba(255,77,136,0.7));
-  }
-  @keyframes floatUp{
-    0%{transform:translateY(0) translateX(0) rotate(0deg); opacity:0;}
-    10%{opacity:0.9;}
-    50%{transform:translateY(-55vh) translateX(15px) rotate(15deg);}
-    90%{opacity:0.6;}
-    100%{transform:translateY(-105vh) translateX(-10px) rotate(-10deg); opacity:0;}
-  }
-
-  .balloon{
-    position:absolute;
-    bottom:-100px;
-    width:40px;
-    height:52px;
-    border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
-    opacity:0.9;
-    animation:balloonRise linear infinite;
-  }
-  .balloon::after{
-    content:'';
-    position:absolute;
-    left:50%;
-    top:100%;
-    width:1px;
-    height:40px;
-    background:rgba(255,255,255,0.4);
-    transform:translateX(-50%);
-  }
-  @keyframes balloonRise{
-    0%{transform:translateY(0) translateX(0); opacity:0;}
-    8%{opacity:0.9;}
-    92%{opacity:0.7;}
-    100%{transform:translateY(-115vh) translateX(20px); opacity:0;}
-  }
-
-  /* ============ SPARKLES ============ */
-  .sparkle-wrap{position:relative; display:inline-block;}
-  .sparkle{
-    position:absolute;
-    width:6px;height:6px;
-    background:var(--gold);
-    border-radius:50%;
-    animation:sparklePop 1.8s ease-in-out infinite;
-    box-shadow:0 0 8px var(--gold);
-  }
-  @keyframes sparklePop{
-    0%,100%{opacity:0; transform:scale(0);}
-    50%{opacity:1; transform:scale(1);}
-  }
-
-  /* ============ TYPOGRAPHY ============ */
-  h1,h2,.script{
-    font-family:var(--font-head);
-    color:var(--white);
-    text-shadow:0 0 12px rgba(255,122,162,0.65), 0 0 30px rgba(255,77,136,0.35);
-  }
-  h1{font-size:56px; line-height:1.1;}
-  h2{font-size:42px; line-height:1.2;}
-  p{font-family:var(--font-body); color:var(--grey); font-size:15px; line-height:1.8; font-weight:300;}
-
-  .eyebrow{
-    font-family:var(--font-body);
-    font-size:12px;
-    letter-spacing:3px;
-    text-transform:uppercase;
-    color:var(--gold);
-    font-weight:600;
-  }
-
-  /* ============ SECTIONS GENERAL ============ */
-  section{
-    position:relative;
-    z-index:2;
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:60px 0;
-  }
-
-  .reveal{
-    opacity:0;
-    transform:translateY(40px);
-    transition:opacity 0.9s ease, transform 0.9s ease;
-  }
-  .reveal.in-view{
-    opacity:1;
-    transform:translateY(0);
-  }
-
-  /* ============ GLASS CARD ============ */
-  .glass-card{
-    background:rgba(255,255,255,0.06);
-    border:1px solid rgba(255,255,255,0.14);
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
-    border-radius:24px;
-    padding:28px 22px;
-    width:100%;
-    box-shadow:0 8px 32px rgba(0,0,0,0.35);
-  }
-
-  .heart-icon{
-    font-size:44px;
-    display:inline-block;
-    animation:heartbeat 1.8s ease-in-out infinite;
-    filter:drop-shadow(0 0 14px rgba(255,77,136,0.8));
-  }
-  @keyframes heartbeat{
-    0%,100%{transform:scale(1);}
-    15%{transform:scale(1.15);}
-    30%{transform:scale(1);}
-    45%{transform:scale(1.1);}
-    60%{transform:scale(1);}
-  }
-
-  .btn{
-    font-family:var(--font-body);
-    font-weight:600;
-    font-size:15px;
-    color:var(--white);
-    background:linear-gradient(135deg, var(--pink), var(--rose));
-    border:none;
-    padding:16px 34px;
-    border-radius:50px;
-    box-shadow:0 6px 24px rgba(255,77,136,0.45);
-    cursor:pointer;
-    margin-top:22px;
-    letter-spacing:0.5px;
-    transition:transform 0.25s ease, box-shadow 0.25s ease;
-    -webkit-tap-highlight-color:transparent;
-  }
-  .btn:active{transform:scale(0.95); box-shadow:0 3px 14px rgba(255,77,136,0.5);}
-
-  .music-btn{
-    position:fixed;
-    top:18px;
-    right:18px;
-    z-index:50;
-    width:46px;height:46px;
-    border-radius:50%;
-    background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.25);
-    backdrop-filter:blur(10px);
-    display:flex;align-items:center;justify-content:center;
-    font-size:18px;
-    color:var(--white);
-    cursor:pointer;
-  }
-
-  /* ============ INTRO SCREEN ============ */
-  #intro{
-    min-height:100vh;
-    justify-content:center;
-    transition:opacity 1.2s ease;
-  }
-  #intro .name-script{font-size:64px; margin-top:6px;}
-  #intro .sub-eyebrow{margin-top:18px; font-size:13px; color:var(--gold); letter-spacing:2px;}
-
-  #intro.fading{opacity:0; pointer-events:none;}
-
-  /* ============ TYPEWRITER ============ */
-  .typewriter-box{
-    min-height:220px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:14px;
-    text-align:center;
-  }
-  .tw-line{
-    font-size:16px;
-    color:var(--grey);
-    font-weight:300;
-    line-height:1.7;
-    min-height:1.7em;
-  }
-  .tw-line.hi-name{font-family:var(--font-head); font-size:32px; color:var(--white);}
-  .cursor-blink{
-    display:inline-block;
-    width:2px;
-    background:var(--pink);
-    margin-left:2px;
-    animation:blink 0.8s step-end infinite;
-  }
-  @keyframes blink{50%{opacity:0;}}
-
-  /* ============ MEMORY CARDS ============ */
-  .memory-card{
-    width:100%;
-    margin-bottom:20px;
-  }
-  .memory-card .heart-small{font-size:26px; margin-bottom:10px; display:block;}
-
-  /* ============ QUESTION CARDS ============ */
-  .qa-card{width:100%; margin-bottom:24px; text-align:left;}
-  .qa-question{font-size:16px; color:var(--rose); font-weight:500; margin-bottom:14px; text-align:center;}
-  .qa-input{
-    width:100%;
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.2);
-    border-radius:14px;
-    padding:14px 16px;
-    color:var(--white);
-    font-family:var(--font-body);
-    font-size:14px;
-    outline:none;
-  }
-  .qa-input::placeholder{color:rgba(234,234,234,0.4);}
-  .qa-reveal-btn{width:100%; text-align:center;}
-  .qa-answer-wrap{
-    margin-top:16px;
-    display:none;
-    text-align:center;
-    position:relative;
-    min-height:60px;
-  }
-  .envelope{
-    font-size:38px;
-    display:inline-block;
-    animation:envelopeOpen 0.9s ease forwards;
-  }
-  @keyframes envelopeOpen{
-    0%{transform:scale(0.3) rotate(-8deg); opacity:0;}
-    60%{transform:scale(1.1) rotate(4deg); opacity:1;}
-    100%{transform:scale(1) rotate(0deg); opacity:1;}
-  }
-  .qa-answer-text{
-    margin-top:12px;
-    font-size:15px;
-    color:var(--grey);
-    min-height:1.6em;
-  }
-
-  /* ============ AUTO-ROTATE NOTE CARD ============ */
-  #note-card p{
-    font-size:17px;
-    color:var(--white);
-    font-weight:400;
-    transition:opacity 0.6s ease;
-  }
-
-  /* ============ FINAL SCREEN ============ */
-  #final-screen{
-    min-height:100vh;
-    background:radial-gradient(ellipse at center, #1a0d29 0%, var(--bg-black) 80%);
-  }
-  #final-screen .big-heart{
-    font-size:90px;
-    animation:heartbeat 1.6s ease-in-out infinite;
-    filter:drop-shadow(0 0 40px rgba(255,77,136,0.9));
-  }
-  #final-screen h1{font-size:52px; margin-top:10px;}
-  #final-screen .infinity{font-size:38px; color:var(--gold); margin-top:6px;}
-  #final-screen .signature{margin-top:50px; font-size:13px; color:var(--grey); opacity:0.7; line-height:1.9;}
-
-  /* ============ CONFETTI ============ */
-  .confetti-piece{
-    position:absolute;
-    top:-20px;
-    width:8px;height:14px;
-    opacity:0.9;
-    animation:confettiFall linear forwards;
-  }
-  @keyframes confettiFall{
-    0%{transform:translateY(0) rotate(0deg); opacity:1;}
-    100%{transform:translateY(110vh) rotate(540deg); opacity:0.2;}
-  }
-
-  /* progress dots for scroll sections (subtle) */
-  .divider{
-    width:40px;height:2px;
-    background:linear-gradient(90deg, transparent, var(--pink), transparent);
-    margin:26px auto;
-    opacity:0.7;
-  }
-
-  .section-title{margin-bottom:26px;}
-</style>
-</head>
-<body>
-
-<!-- ============ AMBIENT BACKGROUND ============ -->
-<div id="bg-canvas-layer">
-  <div class="glow-blob g1"></div>
-  <div class="glow-blob g2"></div>
-  <div class="glow-blob g3"></div>
-  <div id="stars-container"></div>
-  <div id="hearts-container"></div>
-  <div id="balloons-container"></div>
-</div>
-
-<!-- ============ MUSIC TOGGLE ============ -->
-<button class="music-btn" id="musicBtn" aria-label="Play music">🎵</button>
-<audio id="bgMusic" loop preload="none">
-  <!-- Add your own romantic instrumental mp3 and reference it here -->
-  <source src="" type="audio/mpeg">
-</audio>
-
-<!-- ============ SECTION: INTRO / SCREEN 1 ============ -->
-<section id="intro">
-  <div class="wrap">
-    <div class="heart-icon">❤️</div>
-    <h1 style="margin-top:14px;">Happy Birthday</h1>
-    <div class="eyebrow" style="margin-top:8px;">My Dear Wife</div>
-    <div class="name-script script">Kanchan</div>
-    <div class="sub-eyebrow">29 Years of Beautifulness ✨</div>
-  </div>
-</section>
-
-<!-- ============ SECTION: OPENING TYPEWRITER ============ -->
-<section id="opening-letter">
-  <div class="wrap reveal">
-    <div class="typewriter-box" id="openingTw"></div>
-    <button class="btn" id="openHeartBtn" style="display:none;">💖 Open My Heart</button>
-  </div>
-</section>
-
-<!-- ============ SECTION 2: WARNING ============ -->
-<section id="section2">
-  <div class="wrap reveal">
-    <h2 class="section-title">Ek Choti Si Warning 😄</h2>
-    <div class="glass-card">
-      <p>Ye website sirf tumhare liye bani hai.</p>
-      <br>
-      <p>Aur...</p>
-      <br>
-      <p>Isme jitna pyaar hai...<br>Uska koi backup nahi hai. ❤️</p>
-    </div>
-    <button class="btn" onclick="scrollToNext('section3')">Continue</button>
-  </div>
-</section>
-
-<!-- ============ SECTION 3: THE LETTER ============ -->
-<section id="section3">
-  <div class="wrap reveal">
-    <h2 class="section-title">Dear Kanchan,</h2>
-    <div class="glass-card">
-      <div class="typewriter-box" id="letterTw" style="min-height:280px;"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SECTION 4: MEMORY CARDS ============ -->
-<section id="section4">
-  <div class="wrap">
-    <h2 class="section-title reveal">Yaadein ❤️</h2>
-
-    <div class="glass-card memory-card reveal">
-      <span class="heart-small">❤️</span>
-      <p>Yaad hai...<br>Jab hum pehli baar mile the?<br><br>Us din meri life silently change ho gayi thi.</p>
-    </div>
-
-    <div class="glass-card memory-card reveal">
-      <span class="heart-small">❤️</span>
-      <p>Hamari pehli movie...<br><br>Sach kahu?<br>Movie me kya kya tha yaad nahi...<br>Par tumari har bat yaad hai.</p>
-    </div>
-
-    <div class="glass-card memory-card reveal">
-      <span class="heart-small">❤️</span>
-      <p>Wo pehli baar jab tum mere saamne paad marke khud hi hasne lagi thi... 😂<br><br>Us din mujhe samajh aa gaya...<br>Ab hum ek dusre ke liye perfect match hai. 😂❤️</p>
-    </div>
-
-    <div class="glass-card memory-card reveal">
-      <span class="heart-small">❤️</span>
-      <p>Anvi ke aane ke baad...<br>Hamari duniya hi badal gayi.<br><br>Aur mujhe tum par aur bhi zyada pyaar aa gaya.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SECTION 5: INTERACTIVE QUESTIONS ============ -->
-<section id="section5">
-  <div class="wrap">
-    <h2 class="section-title reveal">Kitna Yaad Hai Tumhe? 💭</h2>
-
-    <div class="glass-card qa-card reveal" data-answer="Wo dekhne  wala din... jab tumse pehli baar nazar mili thi, me tumko tirchi nazaro se dekh rha tha or tum sharma rhi thi fir me kuch puch rha tha tum muskura rhi thi mujhe tabhi smjh jana chaiye tha ki ye ladki hasa ke fasa legi. (date was 3/sep/2023) ❤️">
-      <div class="qa-question">When did we first meet?</div>
-      <input type="text" class="qa-input" placeholder="Apna jawab likho...">
-      <button class="btn qa-reveal-btn">Reveal 💌</button>
-      <div class="qa-answer-wrap"><div class="envelope">💌</div><div class="qa-answer-text"></div></div>
-    </div>
-
-    <div class="glass-card qa-card reveal" data-answer="Sirf tum jaanti ho... par mere liye tum hamesha meri 'bubu' rahi ho (ha wo bat alag hai ki ab anvi din bhar wahi mangti hai 😂). ❤️">
-      <div class="qa-question">What is my favourite name for you?</div>
-      <input type="text" class="qa-input" placeholder="Apna jawab likho...">
-      <button class="btn qa-reveal-btn">Reveal 💌</button>
-      <div class="qa-answer-wrap"><div class="envelope">💌</div><div class="qa-answer-text"></div></div>
-    </div>
-
-    <div class="glass-card qa-card reveal" data-answer="Main. Kyunki mujhe hi hai bas ab bhi, tum to 5000 bar hate you bol chuki ho😄❤️">
-      <div class="qa-question">Who said I love you first?</div>
-      <input type="text" class="qa-input" placeholder="Apna jawab likho...">
-      <button class="btn qa-reveal-btn">Reveal 💌</button>
-      <div class="qa-answer-wrap"><div class="envelope">💌</div><div class="qa-answer-text"></div></div>
-    </div>
-
-    <div class="glass-card qa-card reveal" data-answer="Tumhari sabse zyada cravings wali cheez jo bas end me hi khai... jo abhi bhi hume yaad karke hasi aati hai. that is the momo and teekhi chatni 😂">
-      <div class="qa-question">What did you eat 1 day before Anvi was born?</div>
-      <input type="text" class="qa-input" placeholder="Apna jawab likho...">
-      <button class="btn qa-reveal-btn">Reveal 💌</button>
-      <div class="qa-answer-wrap"><div class="envelope">💌</div><div class="qa-answer-text"></div></div>
-    </div>
-
-    <div class="glass-card qa-card reveal" data-answer="A very boring movie jisme dono half time tak popcorn khaate rahe or bhi bhut kuch kiya jo share karne layak nahi hai aur story dekhna bhool gaye. 12th fail🍿❤️">
-      <div class="qa-question">Which movie did we first watch together?</div>
-      <input type="text" class="qa-input" placeholder="Apna jawab likho...">
-      <button class="btn qa-reveal-btn">Reveal 💌</button>
-      <div class="qa-answer-wrap"><div class="envelope">💌</div><div class="qa-answer-text"></div></div>
-    </div>
-
-    <div class="glass-card qa-card reveal" data-answer="Obviously main. Ego kam hai, pyaar zyada hai or meri biwi to hamesa hi sahi hoti hai . 😂❤️">
-      <div class="qa-question">Who says sorry first?</div>
-      <input type="text" class="qa-input" placeholder="Apna jawab likho...">
-      <button class="btn qa-reveal-btn">Reveal 💌</button>
-      <div class="qa-answer-wrap"><div class="envelope">💌</div><div class="qa-answer-text"></div></div>
-    </div>
-
-    <div class="glass-card qa-card reveal" data-answer="Tum. Har raat. Bina exception ke. 😂🧣">
-      <div class="qa-question">Who steals the blanket?</div>
-      <input type="text" class="qa-input" placeholder="Apna jawab likho...">
-      <button class="btn qa-reveal-btn">Reveal 💌</button>
-      <div class="qa-answer-wrap"><div class="envelope">💌</div><div class="qa-answer-text"></div></div>
-    </div>
-
-
-    <div class="glass-card qa-card reveal" data-answer="Ki tum bahut simple lagi thi... par jaise jaise time gaya, pata chala tum meri sabse complicated aur sabse jhalli or sabse pyari gift ho. ❤️">
-      <div class="qa-question">What was your first impression of me?</div>
-      <input type="text" class="qa-input" placeholder="Apna jawab likho...">
-      <button class="btn qa-reveal-btn">Reveal 💌</button>
-      <div class="qa-answer-wrap"><div class="envelope">💌</div><div class="qa-answer-text"></div></div>
-    </div>
-
-    <div class="glass-card qa-card reveal" data-answer="Tumhara wo dil... jo hamesha sabse pehle sabka sochta hai, phir apna. Yahi mujhe sabse zyada pyara lagta hai but if I talk about visible things that is your eyes wo mujhe bhut pasand hai I love your eyes more than you. ❤️">
-      <div class="qa-question">What is my favourite thing about you?</div>
-      <input type="text" class="qa-input" placeholder="Apna jawab likho...">
-      <button class="btn qa-reveal-btn">Reveal 💌</button>
-      <div class="qa-answer-wrap"><div class="envelope">💌</div><div class="qa-answer-text"></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SECTION 6: RANDOM LOVE NOTES ============ -->
-<section id="section6">
-  <div class="wrap">
-    <h2 class="section-title reveal">Chhoti Chhoti Baatein 💌</h2>
-    <div class="glass-card reveal" id="note-card">
-      <p id="noteText">Tum meri favourite notification ho.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============ SECTION 7: THINGS I NEVER SAY ============ -->
-<section id="section7">
-  <div class="wrap">
-    <h2 class="section-title reveal">Wo Baatein Jo Main Kabhi Nahi Kehta 🤍</h2>
-
-    <div class="glass-card memory-card reveal">
-      <p>Main shayad roz nahi bolta...<br><br>Par thank you...<br>Har mushkil mein mera saath dene ke liye.</p>
-    </div>
-    <div class="glass-card memory-card reveal">
-      <p>Thank you...<br>Best wife hone ke liye.</p>
-    </div>
-    <div class="glass-card memory-card reveal">
-      <p>Thank you...<br>Best mummy hone ke liye.</p>
-    </div>
-    <div class="glass-card memory-card reveal">
-      <p>Main perfect husband nahi hoon...<br><br>Lekin...<br>Main roz better banne ki koshish karta hoon.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SECTION 8: CONFESSION TIME ============ -->
-<section id="section8">
-  <div class="wrap">
-    <h2 class="section-title reveal">Confession Time 🙈</h2>
-
-    <div class="glass-card memory-card reveal">
-      <span class="heart-small">😂</span>
-      <p>I am sorry...<br><br>Ki meri wajah se tumko din mein 3 baar khana banana padta hai. 🍳😅<br><br>Aur bartan bhi tumhe hi dhone padte hain... 🍽️😂<br><br>Sach mein, tumhara patience dekh ke mujhe khud pe hasi aati hai. 🤣<br><br>Ek din main bhi seekh lunga... shayad. 😂🙏<br><br>Tab tak ke liye... sorry aur thank you, dono ek saath! ❤️😂</p>
-    </div>
-
-    <div class="glass-card memory-card reveal">
-      <span class="heart-small">🙈</span>
-      <p>Ek sacchi confession...<br><br>Shaadi ke time humne saat vachan liye the...<br><br>Sach kahu?<br>Tab mene unko man me bola tha  jor se ni kyuki mujhe lagta tha ki man ke bachan todne ka pap ni lagta  🙈<br><br>Par ab ...<br>Main har din thoda thoda unhe nibhaane ki koshish karta hoon...<br><br>Aur aage bhi karta rahunga.<br><br>I will try to be the best for you, my love. ❤️</p>
-    </div>
-
-    <div class="glass-card memory-card reveal">
-      <span class="heart-small">🤝</span>
-      <p>Aur ek Promise...<br><br>Main apni har koshish karunga tumhe khush rakhne ki.<br><br>Aur ye bhi promise hai...<br>Hum saath mein bahut saari jagah ghumenge...<br><br>Sirf dharmic jagah nahi...<br>Balki wo saari khoobsurat couple destinations bhi... 💑<br><br>Jaha sirf hum dono honge. ✨</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SECTION 9: BIRTHDAY WISHES ============ -->
-<section id="section9">
-  <div class="wrap reveal">
-    <h2 class="section-title">Birthday Wishes ❤️</h2>
-    <div class="glass-card">
-      <div class="typewriter-box" id="wishesTw" style="min-height:260px;"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FINAL SCREEN ============ -->
-<section id="final-screen">
-  <div class="wrap">
-    <div class="big-heart">❤️</div>
-    <h1>I Love You</h1>
-    <div class="script" style="font-size:48px;">Kanchan</div>
-    <div class="eyebrow" style="margin-top:10px;">Forever</div>
-    <div class="infinity">∞</div>
-    <div class="signature">Made with ❤️<br>By Aman<br>Sirf Tumhare Liye.</div>
-  </div>
-</section>
-
-<script>
-/* =====================================================
-   BACKGROUND: STARS
-===================================================== */
-(function createStars(){
-  const container = document.getElementById('stars-container');
-  const count = 45;
-  for(let i=0;i<count;i++){
-    const s = document.createElement('div');
-    s.className = 'star';
-    const size = Math.random()*2.5 + 1;
-    s.style.width = size+'px';
-    s.style.height = size+'px';
-    s.style.left = Math.random()*100+'%';
-    s.style.top = Math.random()*100+'%';
-    s.style.animationDelay = (Math.random()*3)+'s';
-    s.style.animationDuration = (2+Math.random()*2)+'s';
-    container.appendChild(s);
-  }
-})();
-
-/* =====================================================
-   BACKGROUND: FLOATING HEARTS
-===================================================== */
-function spawnHeart(container){
-  const h = document.createElement('div');
-  h.className = 'floating-heart';
-  const hearts = ['❤️','💖','💗','💕'];
-  h.textContent = hearts[Math.floor(Math.random()*hearts.length)];
-  h.style.left = Math.random()*100+'%';
-  const size = 14 + Math.random()*16;
-  h.style.fontSize = size+'px';
-  const duration = 7 + Math.random()*6;
-  h.style.animationDuration = duration+'s';
-  container.appendChild(h);
-  setTimeout(()=>h.remove(), duration*1000);
-}
-const heartsContainer = document.getElementById('hearts-container');
-setInterval(()=>spawnHeart(heartsContainer), 900);
-for(let i=0;i<6;i++) setTimeout(()=>spawnHeart(heartsContainer), i*300);
-
-/* =====================================================
-   BACKGROUND: BALLOONS (only during intro window)
-===================================================== */
-function spawnBalloon(container){
-  const b = document.createElement('div');
-  b.className = 'balloon';
-  const colors = ['#FF4D88','#FF7AA2','#FFD166'];
-  b.style.background = colors[Math.floor(Math.random()*colors.length)];
-  b.style.left = Math.random()*90+'%';
-  const duration = 9 + Math.random()*5;
-  b.style.animationDuration = duration+'s';
-  container.appendChild(b);
-  setTimeout(()=>b.remove(), duration*1000);
-}
-const balloonsContainer = document.getElementById('balloons-container');
-let balloonInterval = setInterval(()=>spawnBalloon(balloonsContainer), 700);
-for(let i=0;i<5;i++) setTimeout(()=>spawnBalloon(balloonsContainer), i*250);
-
-/* =====================================================
-   MUSIC TOGGLE
-===================================================== */
-const musicBtn = document.getElementById('musicBtn');
-const bgMusic = document.getElementById('bgMusic');
-let playing = false;
-musicBtn.addEventListener('click', ()=>{
-  if(!bgMusic.src || bgMusic.src.endsWith('#')){
-    // No audio source provided — placeholder behaviour
-    musicBtn.textContent = playing ? '🎵' : '🔇';
-    playing = !playing;
-    return;
-  }
-  if(playing){ bgMusic.pause(); musicBtn.textContent='🎵'; }
-  else { bgMusic.play().catch(()=>{}); musicBtn.textContent='🔊'; }
-  playing = !playing;
-});
-
-/* =====================================================
-   TYPEWRITER ENGINE
-===================================================== */
-function typeLines(containerEl, lines, opts){
-  opts = opts || {};
-  const speed = opts.speed || 38;
-  const pause = opts.pause || 650;
-  const onDone = opts.onDone || function(){};
-  let li = 0;
-
-  function typeNextLine(){
-    if(li >= lines.length){ onDone(); return; }
-    const lineData = lines[li];
-    const text = typeof lineData === 'string' ? lineData : lineData.text;
-    const cls = typeof lineData === 'string' ? '' : (lineData.cls || '');
-    const lineEl = document.createElement('div');
-    lineEl.className = 'tw-line ' + cls;
-    const cursor = document.createElement('span');
-    cursor.className = 'cursor-blink';
-    lineEl.appendChild(cursor);
-    containerEl.appendChild(lineEl);
-
-    let ci = 0;
-    function typeChar(){
-      if(ci < text.length){
-        cursor.insertAdjacentText('beforebegin', text[ci]);
-        ci++;
-        setTimeout(typeChar, speed);
-      } else {
-        cursor.remove();
-        li++;
-        setTimeout(typeNextLine, pause);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Happy Birthday Kanchan ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ============ ROOT VARIABLES ============ */
+    :root {
+      --bg-dark: #12091d;
+      --bg-black: #08040d;
+      --pink: #FF4D88;
+      --rose: #FF7AA2;
+      --gold: #FFD166;
+      --white: #FFFFFF;
+      --grey: #EAEAEA;
+      --font-head: 'Great Vibes', cursive;
+      --font-body: 'Poppins', sans-serif;
+      --max-width: 420px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-black) 100%);
+      color: var(--white);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      width: 100%;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    ::selection {
+      background: var(--pink);
+      color: var(--white);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
       }
     }
-    typeChar();
-  }
-  typeNextLine();
-}
 
-/* =====================================================
-   INTRO SEQUENCE
-===================================================== */
-window.addEventListener('load', ()=>{
-  setTimeout(()=>{
-    document.getElementById('intro').classList.add('fading');
-    clearInterval(balloonInterval);
-    setTimeout(startOpeningLetter, 1200);
-  }, 4000);
-});
-
-function startOpeningLetter(){
-  const el = document.getElementById('openingTw');
-  const lines = [
-    {text:'Hi Kanchan ❤️', cls:'hi-name'},
-    'Aaj tum 29 saal ki ho gayi ho...',
-    'Aur mujhe pata hai...',
-    'Main shayad words mein utna accha nahi hoon...',
-    'Lekin...',
-    'Aaj maine ek chhota sa surprise banaya hai...',
-    'Sirf tumhare liye.'
-  ];
-  typeLines(el, lines, {
-    speed:34, pause:550,
-    onDone:()=>{
-      document.getElementById('openHeartBtn').style.display='inline-block';
+    .wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      padding: 0 20px;
     }
-  });
-}
 
-document.getElementById('openHeartBtn').addEventListener('click', ()=>{
-  scrollToNext('section2');
-});
-
-function scrollToNext(id){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
-}
-
-/* =====================================================
-   SECTION 3 LETTER TYPEWRITER (triggered on view)
-===================================================== */
-let letterStarted = false;
-function startLetterTw(){
-  if(letterStarted) return;
-  letterStarted = true;
-  const el = document.getElementById('letterTw');
-  const lines = [
-    'Pata hai...',
-    'Main bahut soch raha tha ki tumhe birthday par kya gift doon.',
-    'Flowers? Cake? Jewellery?',
-    'Lekin...',
-    'Phir laga...',
-    'Jo cheez main apne haathon se banaun...',
-    'Uski value shayad zyada hogi.',
-    'Isliye... ye website.',
-    'Ye meri taraf se ek chhota sa gift hai...',
-    'Jo shayad perfect na ho...',
-    'Par dil se bana hai. ❤️'
-  ];
-  typeLines(el, lines, {speed:30, pause:500});
-}
-
-/* =====================================================
-   SECTION 9 WISHES TYPEWRITER (triggered on view)
-===================================================== */
-let wishesStarted = false;
-function startWishesTw(){
-  if(wishesStarted) return;
-  wishesStarted = true;
-  const el = document.getElementById('wishesTw');
-  const lines = [
-    {text:'Dear Mrs. Gupta ❤️', cls:'hi-name'},
-    'Happy Birthday.',
-    'Main dua karta hoon...',
-    'Tum hamesha haste raho.',
-    'Healthy raho. Khush raho.',
-    'Aur...',
-    'Jab hum 70 saal ke honge...',
-    'Tab bhi main tumhe isi tarah tang karta rahun. 😄❤️'
-  ];
-  typeLines(el, lines, {
-    speed:30, pause:550,
-    onDone:()=>{ setTimeout(triggerConfetti, 400); }
-  });
-}
-
-/* =====================================================
-   INTERSECTION OBSERVER — REVEAL ON SCROLL
-===================================================== */
-const revealEls = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('in-view');
+    /* ============ BACKGROUND LAYERS ============ */
+    #bg-canvas-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
     }
-  });
-}, {threshold:0.2});
-revealEls.forEach(el=>io.observe(el));
 
-/* Trigger typewriters when their section scrolls into view */
-const twTriggerIO = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      if(entry.target.id === 'section3') startLetterTw();
-      if(entry.target.id === 'section9') startWishesTw();
+    .glow-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.35;
     }
-  });
-}, {threshold:0.3});
-twTriggerIO.observe(document.getElementById('section3'));
-twTriggerIO.observe(document.getElementById('section9'));
 
-/* Final screen confetti trigger */
-const finalIO = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){ triggerConfetti(); finalIO.disconnect(); }
-  });
-}, {threshold:0.4});
-finalIO.observe(document.getElementById('final-screen'));
+    .glow-blob.g1 {
+      width: 260px;
+      height: 260px;
+      background: var(--pink);
+      top: -60px;
+      left: -60px;
+    }
 
-/* =====================================================
-   QA CARDS — envelope reveal logic
-===================================================== */
-document.querySelectorAll('.qa-card').forEach(card=>{
-  const btn = card.querySelector('.qa-reveal-btn');
-  const input = card.querySelector('.qa-input');
-  const answerWrap = card.querySelector('.qa-answer-wrap');
-  const answerText = card.querySelector('.qa-answer-text');
-  const answer = card.getAttribute('data-answer');
+    .glow-blob.g2 {
+      width: 220px;
+      height: 220px;
+      background: var(--rose);
+      bottom: 10%;
+      right: -70px;
+    }
 
-  btn.addEventListener('click', ()=>{
-    input.style.transition = 'opacity 0.4s ease';
-    input.style.opacity = '0';
-    btn.style.opacity = '0';
-    setTimeout(()=>{
-      input.style.display='none';
-      btn.style.display='none';
-      answerWrap.style.display='block';
-      // spawn a few celebratory hearts near this card
-      for(let i=0;i<4;i++) setTimeout(()=>spawnHeart(heartsContainer), i*150);
-      typeLines(answerText, [answer], {speed:26, pause:0});
-    }, 400);
-  });
-});
+    .glow-blob.g3 {
+      width: 200px;
+      height: 200px;
+      background: var(--gold);
+      top: 45%;
+      left: -80px;
+      opacity: 0.18;
+    }
 
-/* =====================================================
-   SECTION 6 — AUTO-ROTATING LOVE NOTES
-===================================================== */
-const loveNotes = [
-  'Tum meri favourite notification ho.',
-  'Tumhare bina ghar... sirf ghar hai.<br>Tumhare saath... home hai.',
-  'Tumhari smile... aaj bhi mera mood theek kar deti hai.',
-  'Thank you... mujhe papa banane ke liye.',
-  'Main har din tumse thoda aur pyaar karta hoon.'
-];
-let noteIndex = 0;
-const noteTextEl = document.getElementById('noteText');
-setInterval(()=>{
-  noteIndex = (noteIndex+1) % loveNotes.length;
-  noteTextEl.style.opacity = '0';
-  setTimeout(()=>{
-    noteTextEl.innerHTML = loveNotes[noteIndex];
-    noteTextEl.style.opacity = '1';
-  }, 350);
-}, 6000);
+    .star {
+      position: absolute;
+      background: var(--white);
+      border-radius: 50%;
+      animation: twinkle 3s ease-in-out infinite;
+    }
 
-/* =====================================================
-   CONFETTI (used only at important moments)
-===================================================== */
-function triggerConfetti(){
-  const colors = ['#FF4D88','#FF7AA2','#FFD166','#FFFFFF'];
-  for(let i=0;i<60;i++){
-    setTimeout(()=>{
-      const c = document.createElement('div');
-      c.className = 'confetti-piece';
-      c.style.left = Math.random()*100+'%';
-      c.style.background = colors[Math.floor(Math.random()*colors.length)];
-      c.style.animationDuration = (2.5+Math.random()*2)+'s';
-      c.style.borderRadius = Math.random()>0.5 ? '50%' : '2px';
-      document.getElementById('bg-canvas-layer').appendChild(c);
-      setTimeout(()=>c.remove(), 5000);
-    }, i*30);
-  }
-}
-</script>
+    @keyframes twinkle {
+
+      0%,
+      100% {
+        opacity: 0.15;
+        transform: scale(0.8);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
+
+    .floating-heart {
+      position: absolute;
+      bottom: -40px;
+      font-size: 18px;
+      opacity: 0;
+      animation: floatUp linear infinite;
+      filter: drop-shadow(0 0 6px rgba(255, 77, 136, 0.7));
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.9;
+      }
+
+      50% {
+        transform: translateY(-55vh) translateX(15px) rotate(15deg);
+      }
+
+      90% {
+        opacity: 0.6;
+      }
+
+      100% {
+        transform: translateY(-105vh) translateX(-10px) rotate(-10deg);
+        opacity: 0;
+      }
+    }
+
+    .balloon {
+      position: absolute;
+      bottom: -100px;
+      width: 40px;
+      height: 52px;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      opacity: 0.9;
+      animation: balloonRise linear infinite;
+    }
+
+    .balloon::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      width: 1px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.4);
+      transform: translateX(-50%);
+    }
+
+    @keyframes balloonRise {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+      }
+
+      8% {
+        opacity: 0.9;
+      }
+
+      92% {
+        opacity: 0.7;
+      }
+
+      100% {
+        transform: translateY(-115vh) translateX(20px);
+        opacity: 0;
+      }
+    }
+
+    /* ============ SPARKLES ============ */
+    .sparkle-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: sparklePop 1.8s ease-in-out infinite;
+      box-shadow: 0 0 8px var(--gold);
+    }
+
+    @keyframes sparklePop {
+
+      0%,
+      100% {
+        opacity: 0;
+        transform: scale(0);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* ============ TYPOGRAPHY ============ */
+    h1,
+    h2,
+    .script {
+      font-family: var(--font-head);
+      color: var(--white);
+      text-shadow: 0 0 12px rgba(255, 122, 162, 0.65), 0 0 30px rgba(255, 77, 136, 0.35);
+    }
+
+    h1 {
+      font-size: 56px;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: 42px;
+      line-height: 1.2;
+    }
+
+    p {
+      font-family: var(--font-body);
+      color: var(--grey);
+      font-size: 15px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* ============ SECTIONS GENERAL ============ */
+    section {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 0;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============ GLASS CARD ============ */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 24px;
+      padding: 28px 22px;
+      width: 100%;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    }
+
+    .heart-icon {
+      font-size: 44px;
+      display: inline-block;
+      animation: heartbeat 1.8s ease-in-out infinite;
+      filter: drop-shadow(0 0 14px rgba(255, 77, 136, 0.8));
+    }
+
+    @keyframes heartbeat {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      15% {
+        transform: scale(1.15);
+      }
+
+      30% {
+        transform: scale(1);
+      }
+
+      45% {
+        transform: scale(1.1);
+      }
+
+      60% {
+        transform: scale(1);
+      }
+    }
+
+    .btn {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--pink), var(--rose));
+      border: none;
+      padding: 16px 34px;
+      border-radius: 50px;
+      box-shadow: 0 6px 24px rgba(255, 77, 136, 0.45);
+      cursor: pointer;
+      margin-top: 22px;
+      letter-spacing: 0.5px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn:active {
+      transform: scale(0.95);
+      box-shadow: 0 3px 14px rgba(255, 77, 136, 0.5);
+    }
+
+    .music-btn {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 50;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--white);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .music-btn.playing {
+      animation: pulseGlow 1.5s ease-in-out infinite;
+      background: rgba(255, 77, 136, 0.25);
+      border-color: var(--pink);
+    }
+
+    @keyframes pulseGlow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 8px rgba(255, 77, 136, 0.4);
+        transform: scale(1);
+      }
+
+      50% {
+        box-shadow: 0 0 18px rgba(255, 77, 136, 0.8);
+        transform: scale(1.06);
+      }
+    }
+
+    /* ============ INTRO SCREEN ============ */
+    #intro {
+      min-height: 100vh;
+      justify-content: center;
+      transition: opacity 1.2s ease;
+    }
+
+    #intro .name-script {
+      font-size: 64px;
+      margin-top: 6px;
+    }
+
+    #intro .sub-eyebrow {
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--gold);
+      letter-spacing: 2px;
+    }
+
+    #intro.fading {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* ============ TYPEWRITER ============ */
+    .typewriter-box {
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      text-align: center;
+    }
+
+    .tw-line {
+      font-size: 16px;
+      color: var(--grey);
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 1.7em;
+    }
+
+    .tw-line.hi-name {
+      font-family: var(--font-head);
+      font-size: 32px;
+      color: var(--white);
+    }
+
+    .cursor-blink {
+      display: inline-block;
+      width: 2px;
+      background: var(--pink);
+      margin-left: 2px;
+      animation: blink 0.8s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    /* ============ MEMORY CARDS ============ */
+    .memory-card {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .memory-card .heart-small {
+      font-size: 26px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    /* ============ QUESTION CARDS ============ */
+    .qa-card {
+      width: 100%;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+
+    .qa-question {
+      font-size: 16px;
+      color: var(--rose);
+      font-weight: 500;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .qa-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 14px;
+      padding: 14px 16px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 14px;
+      outline: none;
+    }
+
+    .qa-input::placeholder {
+      color: rgba(234, 234, 234, 0.4);
+    }
+
+    .qa-reveal-btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    .qa-answer-wrap {
+      margin-top: 16px;
+      display: none;
+      text-align: center;
+      position: relative;
+      min-height: 60px;
+    }
+
+    .envelope {
+      font-size: 38px;
+      display: inline-block;
+      animation: envelopeOpen 0.9s ease forwards;
+    }
+
+    @keyframes envelopeOpen {
+      0% {
+        transform: scale(0.3) rotate(-8deg);
+        opacity: 0;
+      }
+
+      60% {
+        transform: scale(1.1) rotate(4deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+      }
+    }
+
+    .qa-answer-text {
+      margin-top: 12px;
+      font-size: 15px;
+      color: var(--grey);
+      min-height: 1.6em;
+    }
+
+    /* ============ AUTO-ROTATE NOTE CARD ============ */
+    #note-card p {
+      font-size: 17px;
+      color: var(--white);
+      font-weight: 400;
+      transition: opacity 0.6s ease;
+    }
+
+    /* ============ FINAL SCREEN ============ */
+    #final-screen {
+      min-height: 100vh;
+      background: radial-gradient(ellipse at center, #1a0d29 0%, var(--bg-black) 80%);
+    }
+
+    #final-screen .big-heart {
+      font-size: 90px;
+      animation: heartbeat 1.6s ease-in-out infinite;
+      filter: drop-shadow(0 0 40px rgba(255, 77, 136, 0.9));
+    }
+
+    #final-screen h1 {
+      font-size: 52px;
+      margin-top: 10px;
+    }
+
+    #final-screen .infinity {
+      font-size: 38px;
+      color: var(--gold);
+      margin-top: 6px;
+    }
+
+    #final-screen .signature {
+      margin-top: 50px;
+      font-size: 13px;
+      color: var(--grey);
+      opacity: 0.7;
+      line-height: 1.9;
+    }
+
+    /* ============ CONFETTI ============ */
+    .confetti-piece {
+      position: absolute;
+      top: -20px;
+      width: 8px;
+      height: 14px;
+      opacity: 0.9;
+      animation: confettiFall linear forwards;
+    }
+
+    @keyframes confettiFall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(110vh) rotate(540deg);
+        opacity: 0.2;
+      }
+    }
+
+    /* progress dots for scroll sections (subtle) */
+    .divider {
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--pink), transparent);
+      margin: 26px auto;
+      opacity: 0.7;
+    }
+
+    .section-title {
+      margin-bottom: 26px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ AMBIENT BACKGROUND ============ -->
+  <div id="bg-canvas-layer">
+    <div class="glow-blob g1"></div>
+    <div class="glow-blob g2"></div>
+    <div class="glow-blob g3"></div>
+    <div id="stars-container"></div>
+    <div id="hearts-container"></div>
+    <div id="balloons-container"></div>
+  </div>
+
+  <!-- ============ MUSIC TOGGLE ============ -->
+  <button class="music-btn" id="musicBtn" aria-label="Play music">🎵</button>
+  <video id="bgMusic" autoplay loop playsinline style="display:none;" preload="auto"
+    src="vidssave.com Pehla Nasha  - Instrumental _ Pehla Nasha _ Pehla Nasha - Piano LOW.mp4">
+    <source src="vidssave.com Pehla Nasha  - Instrumental _ Pehla Nasha _ Pehla Nasha - Piano LOW.mp4" type="video/mp4">
+  </video>
+
+  <!-- ============ SECTION: INTRO / SCREEN 1 ============ -->
+  <section id="intro" style="cursor:pointer;">
+    <div class="wrap">
+      <div class="heart-icon">❤️</div>
+      <h1 style="margin-top:14px;">Happy Birthday</h1>
+      <div class="eyebrow" style="margin-top:8px;">My Dear Wife</div>
+      <div class="name-script script">Kanchan</div>
+      <div class="sub-eyebrow">29 Years of Beautifulness ✨</div>
+      <button class="btn" id="startSurpriseBtn" style="margin-top:26px;">💖 Start My Surprise 💖</button>
+    </div>
+  </section>
+
+  <!-- ============ SECTION: OPENING TYPEWRITER ============ -->
+  <section id="opening-letter">
+    <div class="wrap reveal">
+      <div class="typewriter-box" id="openingTw"></div>
+      <button class="btn" id="openHeartBtn" style="display:none;">💖 Open My Heart</button>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 2: WARNING ============ -->
+  <section id="section2">
+    <div class="wrap reveal">
+      <h2 class="section-title">Ek Choti Si Warning 😄</h2>
+      <div class="glass-card">
+        <p>Ye website sirf tumhare liye bani hai.</p>
+        <br>
+        <p>Aur...</p>
+        <br>
+        <p>Isme jitna pyaar hai...<br>Uska koi backup nahi hai. ❤️</p>
+      </div>
+      <button class="btn" onclick="scrollToNext('section3')">Continue</button>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 3: THE LETTER ============ -->
+  <section id="section3">
+    <div class="wrap reveal">
+      <h2 class="section-title">Dear Kanchan,</h2>
+      <div class="glass-card">
+        <div class="typewriter-box" id="letterTw" style="min-height:280px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 4: MEMORY CARDS ============ -->
+  <section id="section4">
+    <div class="wrap">
+      <h2 class="section-title reveal">Yaadein ❤️</h2>
+
+      <div class="glass-card memory-card reveal">
+        <span class="heart-small">❤️</span>
+        <p>Yaad hai...<br>Jab hum pehli baar mile the?<br><br>Us din meri life silently change ho gayi thi.</p>
+      </div>
+
+      <div class="glass-card memory-card reveal">
+        <span class="heart-small">❤️</span>
+        <p>Hamari pehli movie...<br><br>Sach kahu?<br>Movie me kya kya tha yaad nahi...<br>Par tumari har bat yaad hai.
+        </p>
+      </div>
+
+      <div class="glass-card memory-card reveal">
+        <span class="heart-small">❤️</span>
+        <p>Wo pehli baar jab tum mere saamne paad marke khud hi hasne lagi thi... 😂<br><br>Us din mujhe samajh aa
+          gaya...<br>Ab hum ek dusre ke liye perfect match hai. 😂❤️</p>
+      </div>
+
+      <div class="glass-card memory-card reveal">
+        <span class="heart-small">❤️</span>
+        <p>Anvi ke aane ke baad...<br>Hamari duniya hi badal gayi.<br><br>Aur mujhe tum par aur bhi zyada pyaar aa gaya.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 5: INTERACTIVE QUESTIONS ============ -->
+  <section id="section5">
+    <div class="wrap">
+      <h2 class="section-title reveal">Kitna Yaad Hai Tumhe? 💭</h2>
+
+      <div class="glass-card qa-card reveal"
+        data-answer="Wo dekhne  wala din... jab tumse pehli baar nazar mili thi, me tumko tirchi nazaro se dekh rha tha or tum sharma rhi thi fir me kuch puch rha tha tum muskura rhi thi mujhe tabhi smjh jana chaiye tha ki ye ladki hasa ke fasa legi. (date was 3/sep/2023) ❤️">
+        <div class="qa-question">When did we first meet?</div>
+        <input type="text" class="qa-input" placeholder="Apna jawab likho...">
+        <button class="btn qa-reveal-btn">Reveal 💌</button>
+        <div class="qa-answer-wrap">
+          <div class="envelope">💌</div>
+          <div class="qa-answer-text"></div>
+        </div>
+      </div>
+
+      <div class="glass-card qa-card reveal"
+        data-answer="Sirf tum jaanti ho... par mere liye tum hamesha meri 'bubu' rahi ho (ha wo bat alag hai ki ab anvi din bhar wahi mangti hai 😂). ❤️">
+        <div class="qa-question">What is my favourite name for you?</div>
+        <input type="text" class="qa-input" placeholder="Apna jawab likho...">
+        <button class="btn qa-reveal-btn">Reveal 💌</button>
+        <div class="qa-answer-wrap">
+          <div class="envelope">💌</div>
+          <div class="qa-answer-text"></div>
+        </div>
+      </div>
+
+      <div class="glass-card qa-card reveal"
+        data-answer="Main. Kyunki mujhe hi hai bas ab bhi, tum to 5000 bar hate you bol chuki ho😄❤️">
+        <div class="qa-question">Who said I love you first?</div>
+        <input type="text" class="qa-input" placeholder="Apna jawab likho...">
+        <button class="btn qa-reveal-btn">Reveal 💌</button>
+        <div class="qa-answer-wrap">
+          <div class="envelope">💌</div>
+          <div class="qa-answer-text"></div>
+        </div>
+      </div>
+
+      <div class="glass-card qa-card reveal"
+        data-answer="Tumhari sabse zyada cravings wali cheez jo bas end me hi khai... jo abhi bhi hume yaad karke hasi aati hai. that is the momo and teekhi chatni 😂">
+        <div class="qa-question">What did you eat 1 day before Anvi was born?</div>
+        <input type="text" class="qa-input" placeholder="Apna jawab likho...">
+        <button class="btn qa-reveal-btn">Reveal 💌</button>
+        <div class="qa-answer-wrap">
+          <div class="envelope">💌</div>
+          <div class="qa-answer-text"></div>
+        </div>
+      </div>
+
+      <div class="glass-card qa-card reveal"
+        data-answer="A very boring movie jisme dono half time tak popcorn khaate rahe or bhi bhut kuch kiya jo share karne layak nahi hai aur story dekhna bhool gaye. 12th fail🍿❤️">
+        <div class="qa-question">Which movie did we first watch together?</div>
+        <input type="text" class="qa-input" placeholder="Apna jawab likho...">
+        <button class="btn qa-reveal-btn">Reveal 💌</button>
+        <div class="qa-answer-wrap">
+          <div class="envelope">💌</div>
+          <div class="qa-answer-text"></div>
+        </div>
+      </div>
+
+      <div class="glass-card qa-card reveal"
+        data-answer="Obviously main. Ego kam hai, pyaar zyada hai or meri biwi to hamesa hi sahi hoti hai . 😂❤️">
+        <div class="qa-question">Who says sorry first?</div>
+        <input type="text" class="qa-input" placeholder="Apna jawab likho...">
+        <button class="btn qa-reveal-btn">Reveal 💌</button>
+        <div class="qa-answer-wrap">
+          <div class="envelope">💌</div>
+          <div class="qa-answer-text"></div>
+        </div>
+      </div>
+
+      <div class="glass-card qa-card reveal" data-answer="Tum. Har raat. Bina exception ke. 😂🧣">
+        <div class="qa-question">Who steals the blanket?</div>
+        <input type="text" class="qa-input" placeholder="Apna jawab likho...">
+        <button class="btn qa-reveal-btn">Reveal 💌</button>
+        <div class="qa-answer-wrap">
+          <div class="envelope">💌</div>
+          <div class="qa-answer-text"></div>
+        </div>
+      </div>
+
+
+      <div class="glass-card qa-card reveal"
+        data-answer="Ki tum bahut simple lagi thi... par jaise jaise time gaya, pata chala tum meri sabse complicated aur sabse jhalli or sabse pyari gift ho. ❤️">
+        <div class="qa-question">What was your first impression of me?</div>
+        <input type="text" class="qa-input" placeholder="Apna jawab likho...">
+        <button class="btn qa-reveal-btn">Reveal 💌</button>
+        <div class="qa-answer-wrap">
+          <div class="envelope">💌</div>
+          <div class="qa-answer-text"></div>
+        </div>
+      </div>
+
+      <div class="glass-card qa-card reveal"
+        data-answer="Tumhara wo dil... jo hamesha sabse pehle sabka sochta hai, phir apna. Yahi mujhe sabse zyada pyara lagta hai but if I talk about visible things that is your eyes wo mujhe bhut pasand hai I love your eyes more than you. ❤️">
+        <div class="qa-question">What is my favourite thing about you?</div>
+        <input type="text" class="qa-input" placeholder="Apna jawab likho...">
+        <button class="btn qa-reveal-btn">Reveal 💌</button>
+        <div class="qa-answer-wrap">
+          <div class="envelope">💌</div>
+          <div class="qa-answer-text"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 6: RANDOM LOVE NOTES ============ -->
+  <section id="section6">
+    <div class="wrap">
+      <h2 class="section-title reveal">Chhoti Chhoti Baatein 💌</h2>
+      <div class="glass-card reveal" id="note-card">
+        <p id="noteText">Tum meri favourite notification ho.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ SECTION 7: THINGS I NEVER SAY ============ -->
+  <section id="section7">
+    <div class="wrap">
+      <h2 class="section-title reveal">Wo Baatein Jo Main Kabhi Nahi Kehta 🤍</h2>
+
+      <div class="glass-card memory-card reveal">
+        <p>Main shayad roz nahi bolta...<br><br>Par thank you...<br>Har mushkil mein mera saath dene ke liye.</p>
+      </div>
+      <div class="glass-card memory-card reveal">
+        <p>Thank you...<br>Best wife hone ke liye.</p>
+      </div>
+      <div class="glass-card memory-card reveal">
+        <p>Thank you...<br>Best mummy hone ke liye.</p>
+      </div>
+      <div class="glass-card memory-card reveal">
+        <p>Main perfect husband nahi hoon...<br><br>Lekin...<br>Main roz better banne ki koshish karta hoon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 8: CONFESSION TIME ============ -->
+  <section id="section8">
+    <div class="wrap">
+      <h2 class="section-title reveal">Confession Time 🙈</h2>
+
+      <div class="glass-card memory-card reveal">
+        <span class="heart-small">😂</span>
+        <p>I am sorry...<br><br>Ki meri wajah se tumko din mein 3 baar khana banana padta hai. 🍳😅<br><br>Aur bartan
+          bhi tumhe hi dhone padte hain... 🍽️😂<br><br>Sach mein, tumhara patience dekh ke mujhe khud pe hasi aati hai.
+          🤣<br><br>Ek din main bhi seekh lunga... shayad. 😂🙏<br><br>Tab tak ke liye... sorry aur thank you, dono ek
+          saath! ❤️😂</p>
+      </div>
+
+      <div class="glass-card memory-card reveal">
+        <span class="heart-small">🙈</span>
+        <p>Ek sacchi confession...<br><br>Shaadi ke time humne saat vachan liye the...<br><br>Sach kahu?<br>Tab mene
+          unko man me bola tha jor se ni kyuki mujhe lagta tha ki man ke bachan todne ka pap ni lagta 🙈<br><br>Par ab
+          ...<br>Main har din thoda thoda unhe nibhaane ki koshish karta hoon...<br><br>Aur aage bhi karta
+          rahunga.<br><br>I will try to be the best for you, my love. ❤️</p>
+      </div>
+
+      <div class="glass-card memory-card reveal">
+        <span class="heart-small">🤝</span>
+        <p>Aur ek Promise...<br><br>Main apni har koshish karunga tumhe khush rakhne ki.<br><br>Aur ye bhi promise
+          hai...<br>Hum saath mein bahut saari jagah ghumenge...<br><br>Sirf dharmic jagah nahi...<br>Balki wo saari
+          khoobsurat couple destinations bhi... 💑<br><br>Jaha sirf hum dono honge. ✨</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 9: BIRTHDAY WISHES ============ -->
+  <section id="section9">
+    <div class="wrap reveal">
+      <h2 class="section-title">Birthday Wishes ❤️</h2>
+      <div class="glass-card">
+        <div class="typewriter-box" id="wishesTw" style="min-height:260px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL SCREEN ============ -->
+  <section id="final-screen">
+    <div class="wrap">
+      <div class="big-heart">❤️</div>
+      <h1>I Love You</h1>
+      <div class="script" style="font-size:48px;">Kanchan</div>
+      <div class="eyebrow" style="margin-top:10px;">Forever</div>
+      <div class="infinity">∞</div>
+      <div class="signature">Made with ❤️<br>By Aman<br>Sirf Tumhare Liye.</div>
+    </div>
+  </section>
+
+  <script>
+    /* =====================================================
+       BACKGROUND: STARS
+    ===================================================== */
+    (function createStars() {
+      const container = document.getElementById('stars-container');
+      const count = 45;
+      for (let i = 0; i < count; i++) {
+        const s = document.createElement('div');
+        s.className = 'star';
+        const size = Math.random() * 2.5 + 1;
+        s.style.width = size + 'px';
+        s.style.height = size + 'px';
+        s.style.left = Math.random() * 100 + '%';
+        s.style.top = Math.random() * 100 + '%';
+        s.style.animationDelay = (Math.random() * 3) + 's';
+        s.style.animationDuration = (2 + Math.random() * 2) + 's';
+        container.appendChild(s);
+      }
+    })();
+
+    /* =====================================================
+       BACKGROUND: FLOATING HEARTS
+    ===================================================== */
+    function spawnHeart(container) {
+      const h = document.createElement('div');
+      h.className = 'floating-heart';
+      const hearts = ['❤️', '💖', '💗', '💕'];
+      h.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+      h.style.left = Math.random() * 100 + '%';
+      const size = 14 + Math.random() * 16;
+      h.style.fontSize = size + 'px';
+      const duration = 7 + Math.random() * 6;
+      h.style.animationDuration = duration + 's';
+      container.appendChild(h);
+      setTimeout(() => h.remove(), duration * 1000);
+    }
+    const heartsContainer = document.getElementById('hearts-container');
+    setInterval(() => spawnHeart(heartsContainer), 900);
+    for (let i = 0; i < 6; i++) setTimeout(() => spawnHeart(heartsContainer), i * 300);
+
+    /* =====================================================
+       BACKGROUND: BALLOONS (only during intro window)
+    ===================================================== */
+    function spawnBalloon(container) {
+      const b = document.createElement('div');
+      b.className = 'balloon';
+      const colors = ['#FF4D88', '#FF7AA2', '#FFD166'];
+      b.style.background = colors[Math.floor(Math.random() * colors.length)];
+      b.style.left = Math.random() * 90 + '%';
+      const duration = 9 + Math.random() * 5;
+      b.style.animationDuration = duration + 's';
+      container.appendChild(b);
+      setTimeout(() => b.remove(), duration * 1000);
+    }
+    const balloonsContainer = document.getElementById('balloons-container');
+    let balloonInterval = setInterval(() => spawnBalloon(balloonsContainer), 700);
+    for (let i = 0; i < 5; i++) setTimeout(() => spawnBalloon(balloonsContainer), i * 250);
+
+    /* =====================================================
+       MUSIC TOGGLE & AUTOPLAY WITH LOOP
+    ===================================================== */
+    const musicBtn = document.getElementById('musicBtn');
+    const bgMusic = document.getElementById('bgMusic');
+    bgMusic.loop = true;
+
+    function updateMusicButtonIcon() {
+      if (bgMusic.paused) {
+        musicBtn.textContent = '🎵';
+        musicBtn.classList.remove('playing');
+      } else {
+        musicBtn.textContent = '🔊';
+        musicBtn.classList.add('playing');
+      }
+    }
+
+    function tryPlayAudio() {
+      bgMusic.muted = false;
+      const promise = bgMusic.play();
+      if (promise !== undefined) {
+        promise.then(() => {
+          updateMusicButtonIcon();
+        }).catch(() => {
+          // If browser blocks unmuted autoplay, play muted first then unmute on first gesture
+          bgMusic.muted = true;
+          bgMusic.play().then(() => {
+            updateMusicButtonIcon();
+          }).catch((err) => console.log("Muted autoplay status:", err));
+        });
+      }
+    }
+
+    // Attempt autoplay on page load
+    tryPlayAudio();
+
+    // Fallback: Start sound on ANY user interaction on the screen if autoplay was restricted
+    function unlockAudio() {
+      bgMusic.muted = false;
+      if (bgMusic.paused) {
+        bgMusic.play().then(updateMusicButtonIcon).catch(console.error);
+      }
+      ['click', 'touchstart', 'touchend', 'pointerdown', 'keydown', 'scroll'].forEach((evt) => {
+        document.removeEventListener(evt, unlockAudio);
+      });
+    }
+
+    ['click', 'touchstart', 'touchend', 'pointerdown', 'keydown', 'scroll'].forEach((evt) => {
+      document.addEventListener(evt, unlockAudio, { passive: true });
+    });
+
+    // Toggle play/pause on music button click
+    musicBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (bgMusic.paused) {
+        bgMusic.muted = false;
+        bgMusic.play().then(updateMusicButtonIcon).catch(console.error);
+      } else {
+        bgMusic.pause();
+        updateMusicButtonIcon();
+      }
+    });
+
+    // Continuous loop fallback if audio ever reaches end
+    bgMusic.addEventListener('ended', () => {
+      bgMusic.currentTime = 0;
+      bgMusic.play().catch(console.error);
+    });
+
+    bgMusic.addEventListener('play', updateMusicButtonIcon);
+    bgMusic.addEventListener('pause', updateMusicButtonIcon);
+
+    /* =====================================================
+       TYPEWRITER ENGINE
+    ===================================================== */
+    function typeLines(containerEl, lines, opts) {
+      opts = opts || {};
+      const speed = opts.speed || 38;
+      const pause = opts.pause || 650;
+      const onDone = opts.onDone || function () { };
+      let li = 0;
+
+      function typeNextLine() {
+        if (li >= lines.length) { onDone(); return; }
+        const lineData = lines[li];
+        const text = typeof lineData === 'string' ? lineData : lineData.text;
+        const cls = typeof lineData === 'string' ? '' : (lineData.cls || '');
+        const lineEl = document.createElement('div');
+        lineEl.className = 'tw-line ' + cls;
+        const cursor = document.createElement('span');
+        cursor.className = 'cursor-blink';
+        lineEl.appendChild(cursor);
+        containerEl.appendChild(lineEl);
+
+        let ci = 0;
+        function typeChar() {
+          if (ci < text.length) {
+            cursor.insertAdjacentText('beforebegin', text[ci]);
+            ci++;
+            setTimeout(typeChar, speed);
+          } else {
+            cursor.remove();
+            li++;
+            setTimeout(typeNextLine, pause);
+          }
+        }
+        typeChar();
+      }
+      typeNextLine();
+    }
+
+    /* =====================================================
+       INTRO SEQUENCE & MUSIC UNLOCK
+    ===================================================== */
+    let introStarted = false;
+    function proceedFromIntro() {
+      if (introStarted) return;
+      introStarted = true;
+
+      // Start music directly on user interaction
+      bgMusic.muted = false;
+      bgMusic.play().then(updateMusicButtonIcon).catch((err) => console.log("Play error:", err));
+
+      document.getElementById('intro').classList.add('fading');
+      clearInterval(balloonInterval);
+      setTimeout(startOpeningLetter, 1200);
+    }
+
+    const startSurpriseBtn = document.getElementById('startSurpriseBtn');
+    if (startSurpriseBtn) {
+      startSurpriseBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        proceedFromIntro();
+      });
+    }
+
+    document.getElementById('intro').addEventListener('click', proceedFromIntro);
+
+    window.addEventListener('load', () => {
+      bgMusic.muted = false;
+      bgMusic.play().then(() => {
+        updateMusicButtonIcon();
+      }).catch((err) => {
+        console.log("Browser autoplay blocked on initial load:", err);
+      });
+
+      setTimeout(() => {
+        if (!introStarted) {
+          proceedFromIntro();
+        }
+      }, 5000);
+    });
+
+    function startOpeningLetter() {
+      const el = document.getElementById('openingTw');
+      const lines = [
+        { text: 'Hi Kanchan ❤️', cls: 'hi-name' },
+        'Aaj tum 29 saal ki ho gayi ho...',
+        'Aur mujhe pata hai...',
+        'Main shayad words mein utna accha nahi hoon...',
+        'Lekin...',
+        'Aaj maine ek chhota sa surprise banaya hai...',
+        'Sirf tumhare liye.'
+      ];
+      typeLines(el, lines, {
+        speed: 34, pause: 550,
+        onDone: () => {
+          document.getElementById('openHeartBtn').style.display = 'inline-block';
+        }
+      });
+    }
+
+    document.getElementById('openHeartBtn').addEventListener('click', () => {
+      scrollToNext('section2');
+    });
+
+    function scrollToNext(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    /* =====================================================
+       SECTION 3 LETTER TYPEWRITER (triggered on view)
+    ===================================================== */
+    let letterStarted = false;
+    function startLetterTw() {
+      if (letterStarted) return;
+      letterStarted = true;
+      const el = document.getElementById('letterTw');
+      const lines = [
+        'Pata hai...',
+        'Main bahut soch raha tha ki tumhe birthday par kya gift doon.',
+        'Flowers? Cake? Jewellery?',
+        'Lekin...',
+        'Phir laga...',
+        'Jo cheez main apne haathon se banaun...',
+        'Uski value shayad zyada hogi.',
+        'Isliye... ye website.',
+        'Ye meri taraf se ek chhota sa gift hai...',
+        'Jo shayad perfect na ho...',
+        'Par dil se bana hai. ❤️'
+      ];
+      typeLines(el, lines, { speed: 30, pause: 500 });
+    }
+
+    /* =====================================================
+       SECTION 9 WISHES TYPEWRITER (triggered on view)
+    ===================================================== */
+    let wishesStarted = false;
+    function startWishesTw() {
+      if (wishesStarted) return;
+      wishesStarted = true;
+      const el = document.getElementById('wishesTw');
+      const lines = [
+        { text: 'Dear Mrs. Gupta ❤️', cls: 'hi-name' },
+        'Happy Birthday.',
+        'Main dua karta hoon...',
+        'Tum hamesha haste raho.',
+        'Healthy raho. Khush raho.',
+        'Aur...',
+        'Jab hum 70 saal ke honge...',
+        'Tab bhi main tumhe isi tarah tang karta rahun. 😄❤️'
+      ];
+      typeLines(el, lines, {
+        speed: 30, pause: 550,
+        onDone: () => { setTimeout(triggerConfetti, 400); }
+      });
+    }
+
+    /* =====================================================
+       INTERSECTION OBSERVER — REVEAL ON SCROLL
+    ===================================================== */
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, { threshold: 0.2 });
+    revealEls.forEach(el => io.observe(el));
+
+    /* Trigger typewriters when their section scrolls into view */
+    const twTriggerIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (entry.target.id === 'section3') startLetterTw();
+          if (entry.target.id === 'section9') startWishesTw();
+        }
+      });
+    }, { threshold: 0.3 });
+    twTriggerIO.observe(document.getElementById('section3'));
+    twTriggerIO.observe(document.getElementById('section9'));
+
+    /* Final screen confetti trigger */
+    const finalIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { triggerConfetti(); finalIO.disconnect(); }
+      });
+    }, { threshold: 0.4 });
+    finalIO.observe(document.getElementById('final-screen'));
+
+    /* =====================================================
+       QA CARDS — envelope reveal logic
+    ===================================================== */
+    document.querySelectorAll('.qa-card').forEach(card => {
+      const btn = card.querySelector('.qa-reveal-btn');
+      const input = card.querySelector('.qa-input');
+      const answerWrap = card.querySelector('.qa-answer-wrap');
+      const answerText = card.querySelector('.qa-answer-text');
+      const answer = card.getAttribute('data-answer');
+
+      btn.addEventListener('click', () => {
+        input.style.transition = 'opacity 0.4s ease';
+        input.style.opacity = '0';
+        btn.style.opacity = '0';
+        setTimeout(() => {
+          input.style.display = 'none';
+          btn.style.display = 'none';
+          answerWrap.style.display = 'block';
+          // spawn a few celebratory hearts near this card
+          for (let i = 0; i < 4; i++) setTimeout(() => spawnHeart(heartsContainer), i * 150);
+          typeLines(answerText, [answer], { speed: 26, pause: 0 });
+        }, 400);
+      });
+    });
+
+    /* =====================================================
+       SECTION 6 — AUTO-ROTATING LOVE NOTES
+    ===================================================== */
+    const loveNotes = [
+      'Tum meri favourite notification ho.',
+      'Tumhare bina ghar... sirf ghar hai.<br>Tumhare saath... home hai.',
+      'Tumhari smile... aaj bhi mera mood theek kar deti hai.',
+      'Thank you... mujhe papa banane ke liye.',
+      'Main har din tumse thoda aur pyaar karta hoon.'
+    ];
+    let noteIndex = 0;
+    const noteTextEl = document.getElementById('noteText');
+    setInterval(() => {
+      noteIndex = (noteIndex + 1) % loveNotes.length;
+      noteTextEl.style.opacity = '0';
+      setTimeout(() => {
+        noteTextEl.innerHTML = loveNotes[noteIndex];
+        noteTextEl.style.opacity = '1';
+      }, 350);
+    }, 6000);
+
+    /* =====================================================
+       CONFETTI (used only at important moments)
+    ===================================================== */
+    function triggerConfetti() {
+      const colors = ['#FF4D88', '#FF7AA2', '#FFD166', '#FFFFFF'];
+      for (let i = 0; i < 60; i++) {
+        setTimeout(() => {
+          const c = document.createElement('div');
+          c.className = 'confetti-piece';
+          c.style.left = Math.random() * 100 + '%';
+          c.style.background = colors[Math.floor(Math.random() * colors.length)];
+          c.style.animationDuration = (2.5 + Math.random() * 2) + 's';
+          c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+          document.getElementById('bg-canvas-layer').appendChild(c);
+          setTimeout(() => c.remove(), 5000);
+        }, i * 30);
+      }
+    }
+  </script>
 </body>
+
 </html>
